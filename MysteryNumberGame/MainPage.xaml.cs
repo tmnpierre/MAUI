@@ -4,17 +4,9 @@
     {
         int mysteryNumber;
 
-        public MainPage()
-        {
-            InitializeComponent();
-            InitializeGame();
-        }
+        public MainPage() { InitializeComponent(); InitializeGame(); }
 
-        void InitializeGame()
-        {
-            Random random = new Random();
-            mysteryNumber = random.Next(1, 101);
-        }
+        void InitializeGame() { Random random = new Random(); mysteryNumber = random.Next(1, 101); }
 
         private void OnCheckClicked(object sender, EventArgs e)
         {
