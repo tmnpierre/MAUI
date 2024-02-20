@@ -29,14 +29,17 @@
         {
             if (int.TryParse(userInput.Text, out int userGuess))
             {
+                userInput.Text = "";
+
                 if (userGuess == mysteryNumber)
                 {
-                    ShowEndGameAlert("Félicitations !", "Bravo ! Vous avez trouvé le nombre mystère. Voulez-vous rejouer ?");
+                    ShowEndGameAlert("Félicitations !", $"Bravo ! Vous avez trouvé le nombre mystère {mysteryNumber}. Voulez-vous rejouer ?");
                 }
                 else
                 {
                     lives--;
                     UpdateLivesDisplay();
+
                     if (lives > 0)
                     {
                         resultLabel.Text = userGuess < mysteryNumber ? "Le nombre mystère est plus grand." : "Le nombre mystère est plus petit.";
@@ -44,7 +47,7 @@
                     }
                     else
                     {
-                        ShowEndGameAlert("Game Over", "Vous avez perdu. Le nombre mystère était " + mysteryNumber + ". Voulez-vous rejouer ?");
+                        ShowEndGameAlert("Game Over", $"Vous avez perdu. Le nombre mystère était {mysteryNumber}. Voulez-vous rejouer ?");
                     }
                 }
             }
