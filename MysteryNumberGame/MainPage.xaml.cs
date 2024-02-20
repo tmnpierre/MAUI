@@ -31,15 +31,12 @@
             {
                 if (userGuess == mysteryNumber)
                 {
-                    resultLabel.Text = "Bravo ! Vous avez trouvé le nombre mystère.";
-                    resultLabel.TextColor = Colors.Green;
-                    InitializeGame();
+                    ShowEndGameAlert("Félicitations !", "Bravo ! Vous avez trouvé le nombre mystère. Voulez-vous rejouer ?");
                 }
                 else
                 {
                     lives--;
                     UpdateLivesDisplay();
-
                     if (lives > 0)
                     {
                         resultLabel.Text = userGuess < mysteryNumber ? "Le nombre mystère est plus grand." : "Le nombre mystère est plus petit.";
@@ -47,9 +44,7 @@
                     }
                     else
                     {
-                        resultLabel.Text = "Game Over ! Le nombre mystère était " + mysteryNumber + ".";
-                        resultLabel.TextColor = Colors.Red;
-                        InitializeGame();
+                        ShowEndGameAlert("Game Over", "Vous avez perdu. Le nombre mystère était " + mysteryNumber + ". Voulez-vous rejouer ?");
                     }
                 }
             }
@@ -57,6 +52,15 @@
             {
                 resultLabel.Text = "Veuillez entrer un nombre valide.";
                 resultLabel.TextColor = Colors.Red;
+            }
+        }
+
+        async void ShowEndGameAlert(string title, string message)
+        {
+            bool retry = await DisplayAlert(title, message, "Rejouer", "Quitter");
+            if (retry)
+            {
+                InitializeGame();
             }
         }
     }
