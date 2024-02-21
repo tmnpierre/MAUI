@@ -3,7 +3,7 @@ namespace QuizApp;
 public partial class QuestionPage : ContentPage
 {
     int _questionNumber;
-    string _correctAnswer;
+    string? _correctAnswer;
     List<(string Question, string[] Options, string CorrectAnswer)> questions = new List<(string, string[], string)>
         {
         ("Quelle est la capitale de la France ?", new string[] { "Paris", "Lyon", "Marseille", "Bordeaux" }, "Paris"),
@@ -53,6 +53,7 @@ public partial class QuestionPage : ContentPage
         else
         {
             await DisplayAlert("Incorrect", "La réponse est incorrecte. Essayez encore.", "OK");
+            await Navigation.PushAsync(new QuestionPage(1));
         }
     }
 }
