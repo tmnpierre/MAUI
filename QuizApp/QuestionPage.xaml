@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="QuizApp.QuestionPage"
+             Title="Question">
+
+    <ScrollView>
+        <VerticalStackLayout Spacing="25" Padding="30">
+            <Label x:Name="QuestionLabel" Text="Question"/>
+            <Button x:Name="Answer1" Clicked="Answer_Clicked"/>
+            <Button x:Name="Answer2" Clicked="Answer_Clicked"/>
+            <Button x:Name="Answer3" Clicked="Answer_Clicked"/>
+            <Button x:Name="Answer4" Clicked="Answer_Clicked"/>
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>
